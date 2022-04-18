@@ -21,12 +21,16 @@ const app = express();
 
 // connect to mongo db
 const dbURI = 'mongodb+srv://Nithish:welcome123@nodeblog.1kxq2.mongodb.net/note-tuts?retryWrites=true&w=majority';
+
 mongoose.connect(dbURI, { useNewUrlParser:true, useUnifiedTopology: true})
      .then((result)=>{ app.listen(3000); })
      .catch((err)=> console.log(err));
 
 //register view engine
 app.set('view engine','ejs');
+app.listen(3000, function(){
+  console.log("info",'Server is running at port : ' + 3000);
+});
 
 app.use(express.static('public'));
 
